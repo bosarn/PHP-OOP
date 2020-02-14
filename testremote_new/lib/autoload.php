@@ -1,5 +1,5 @@
 <?php
-$_application_folder = "/testremote";
+$_application_folder = "/PHP-OOP/testremote_new";
 $_root_folder = $_SERVER['DOCUMENT_ROOT'] . "$_application_folder";
 
 //load Models
