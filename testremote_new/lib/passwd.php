@@ -4,6 +4,6 @@ function GetConnectionData()
     return array( "dbhost" => "localhost",
                             "dbname" => "steden",
                             "dbuser" => "root",
-                            "dbpasswd" => "waheej*" ) ;
+                            "dbpasswd" => "nudan?*" ) ;
 }
 ?>
