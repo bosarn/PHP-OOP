@@ -2,8 +2,7 @@
 function GetConnectionData()
 {
     return array( "dbhost" => "localhost",
-                            "dbname" => "steden",
-                            "dbuser" => "root",
-                            "dbpasswd" => "mysql" ) ;
+        "dbname" => "steden",
+        "dbuser" => "root",
+        "dbpasswd" => "mysql" ) ;
 }
-?>

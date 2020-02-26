@@ -9,16 +9,16 @@ require_once $_root_folder . "/Model/User.php";
 //load Services
 require_once $_root_folder . "/Service/CityLoader.php";
 require_once $_root_folder . "/Service/MessageService.php";
-require_once $_root_folder . "/Service/Register.php";
-require_once $_root_folder . "/Service/Login.php";
+require_once $_root_folder . "/Service/UserService.php";
 
 session_start();
 $_SESSION["head_printed"] = false;
 
 $MS = new MessageService();
+$UserService = new UserService();
 
 require_once $_root_folder . "/lib/passwd.php";
-require_once $_root_folder . "/lib/pdo.php";                          //database functies
+require_once $_root_folder . "/lib/pdo.php";                 //database functies
 require_once $_root_folder . "/lib/view_functions.php";      //basic_head, load_template, replacecontent...
 
 //redirect naar NO ACCESS pagina als de gebruiker niet ingelogd is en niet naar
@@ -27,3 +27,4 @@ if ( ! isset($_SESSION['usr']) AND ! $login_form AND ! $register_form AND ! $no_
 {
     header("Location: " . $_application_folder . "/no_access.php");
 }
+

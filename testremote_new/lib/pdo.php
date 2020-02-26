@@ -1,7 +1,6 @@
 <?php
 function GetConnection()
 {
-    require_once "passwd.php";
     $arr_connection = GetConnectionData();
 
     $dbhost = $arr_connection['dbhost'];
