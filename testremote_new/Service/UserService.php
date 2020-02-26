@@ -53,7 +53,7 @@ class UserService
             $User->setLogin($_POST['usr_login']);
             $User->setPaswd($_POST['usr_paswd']);
 
-            if ( $this->CheckLogin() )
+            if ( $this->CheckLogin($User) )
             {
                 header("Location: " . $_application_folder . "/steden.php");
             }
@@ -87,7 +87,7 @@ class UserService
             session_start();
             $this->Load( $row );
             $_SESSION['usr'] = $User->getLogin();
-            $this->LogLoginUser();
+            $this->LogLoginUser($User);
             return true;
         }
         return false;
