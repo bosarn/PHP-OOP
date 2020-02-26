@@ -19,7 +19,8 @@ class MessageService
                 foreach( $_SESSION["$type"] as $message )
                 {
                     $row = array( "message" => $message );
-                    $templ = LoadTemplate("$type" . "s");   // errors.html en infos.html
+                    $TemplateService = new TemplateService();
+                    $templ = $TemplateService->LoadTemplate("$type" . "s");   // errors.html en infos.html
                     print ReplaceContentOneRow( $row, $templ );
                 }
 

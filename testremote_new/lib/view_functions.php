@@ -14,7 +14,8 @@ function BasicHead( $css = "" )
     }
 
     $data = array("stylesheets" => $str_stylesheets );
-    $template = LoadTemplate("basic_head");
+    $TemplateService = new TemplateService();
+    $template = $TemplateService->LoadTemplate("basic_head");
     print ReplaceContentOneRow($data, $template);
 
     $_SESSION["head_printed"] = true;
@@ -43,22 +44,23 @@ function PrintNavBar()
     }
 
     //template voor 1 item samenvoegen met data voor items
-    $template_navbar_item = LoadTemplate("navbar_item");
+    $TemplateService = new TemplateService();
+    $template_navbar_item = $TemplateService->LoadTemplate("navbar_item");
     $navbar_items = ReplaceContent($data, $template_navbar_item);
 
     //navbar template samenvoegen met resultaat ($navbar_items)
     $data = array( "navbar_items" => $navbar_items ) ;
-    $template_navbar = LoadTemplate("navbar");
+    $template_navbar = $TemplateService->LoadTemplate("navbar");
     print ReplaceContentOneRow($data, $template_navbar);
 }
 
-/* Deze functie laadt de opgegeven template */
-function LoadTemplate( $name )
-{
-    if ( file_exists("$name.html") ) return file_get_contents("$name.html");
-    if ( file_exists("templates/$name.html") ) return file_get_contents("templates/$name.html");
-    if ( file_exists("../templates/$name.html") ) return file_get_contents("../templates/$name.html");
-}
+///* Deze functie laadt de opgegeven template */
+//function LoadTemplate( $name )
+//{
+//    if ( file_exists("$name.html") ) return file_get_contents("$name.html");
+//    if ( file_exists("templates/$name.html") ) return file_get_contents("templates/$name.html");
+//    if ( file_exists("../templates/$name.html") ) return file_get_contents("../templates/$name.html");
+//}
 
 /* Deze functie voegt data en template samen en print het resultaat */
 function ReplaceContent( $data, $template_html )

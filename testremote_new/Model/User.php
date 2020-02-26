@@ -1,7 +1,6 @@
 <?php
 class User
 {
-    //test commit
     private $id;
     private $voornaam;
     private $naam;

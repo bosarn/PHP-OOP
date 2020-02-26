@@ -15,7 +15,7 @@ BasicHead( $css );
     <div class="row">
 
         <?php
-        print LoadTemplate("register");
+        print $TemplateService->LoadTemplate("register");
         ?>
 
     </div>

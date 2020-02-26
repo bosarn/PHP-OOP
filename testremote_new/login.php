@@ -25,7 +25,7 @@ $MS->ShowMessages();
     <div class="row">
 
         <?php
-        print LoadTemplate("login");
+        print $TemplateService->LoadTemplate("login");
         ?>
 
     </div>
