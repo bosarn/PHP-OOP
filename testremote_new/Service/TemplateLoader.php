@@ -1,7 +1,7 @@
 <?php
 
 
-class TemplateService
+class TemplateLoader
 {
     /* Deze functie laadt de opgegeven template */
     function LoadTemplate( $name )

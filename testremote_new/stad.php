@@ -16,7 +16,7 @@ BasicHead( $css );
         <?php
         $cityLoader = new CityLoader();
         $cities = $cityLoader->Load( $id = $_GET['id'] );
-        $template = $TemplateService->LoadTemplate("stad");
+        $template = $TemplateLoader->LoadTemplate("stad");
         print ReplaceCities( $cities, $template);
         ?>
 

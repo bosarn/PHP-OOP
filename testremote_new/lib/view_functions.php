@@ -14,8 +14,8 @@ function BasicHead( $css = "" )
     }
 
     $data = array("stylesheets" => $str_stylesheets );
-    $TemplateService = new TemplateService();
-    $template = $TemplateService->LoadTemplate("basic_head");
+    $TemplateLoader = new TemplateLoader();
+    $template = $TemplateLoader->LoadTemplate("basic_head");
     print ReplaceContentOneRow($data, $template);
 
     $_SESSION["head_printed"] = true;
@@ -44,13 +44,13 @@ function PrintNavBar()
     }
 
     //template voor 1 item samenvoegen met data voor items
-    $TemplateService = new TemplateService();
-    $template_navbar_item = $TemplateService->LoadTemplate("navbar_item");
+    $TemplateLoader = new TemplateLoader();
+    $template_navbar_item = $TemplateLoader->LoadTemplate("navbar_item");
     $navbar_items = ReplaceContent($data, $template_navbar_item);
 
     //navbar template samenvoegen met resultaat ($navbar_items)
     $data = array( "navbar_items" => $navbar_items ) ;
-    $template_navbar = $TemplateService->LoadTemplate("navbar");
+    $template_navbar = $TemplateLoader->LoadTemplate("navbar");
     print ReplaceContentOneRow($data, $template_navbar);
 }
 

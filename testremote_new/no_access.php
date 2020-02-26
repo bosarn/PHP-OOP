@@ -16,7 +16,7 @@ BasicHead( $css );
 <div class="container">
 
         <?php
-        print $TemplateService->LoadTemplate("no_access");
+        print $TemplateLoader->LoadTemplate("no_access");
         ?>
 
 </div>

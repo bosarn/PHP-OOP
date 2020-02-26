@@ -17,7 +17,7 @@ BasicHead( $css );
     <div class="row">
 
         <?php
-        print $TemplateService->LoadTemplate("form_file_upload");
+        print $TemplateLoader->LoadTemplate("form_file_upload");
         $images = glob( "img/*.{jpg,png,gif}", GLOB_BRACE );
         foreach( $images as $img )
         {

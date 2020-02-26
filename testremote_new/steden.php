@@ -25,7 +25,7 @@ $MS->ShowMessages();
         <?php
         $cityLoader = new CityLoader();
         $cities = $cityLoader->Load();
-        $template = $TemplateService->LoadTemplate("steden");
+        $template = $TemplateLoader->LoadTemplate("steden");
         print ReplaceCities( $cities, $template);
         ?>
 
