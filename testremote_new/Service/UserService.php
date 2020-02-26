@@ -15,7 +15,7 @@ class UserService
 
     public function ValidatePostedUserData(User $User)
     {
-        $this->CheckIfUserExistsAlready();
+        $this->CheckIfUserExistsAlready($User);
 
         //controle wachtwoord minimaal 8 tekens
         if ( strlen($_POST["usr_paswd"]) < 8 ) die("Uw wachtwoord moet minstens 8 tekens bevatten!");
@@ -53,8 +53,7 @@ class UserService
             $User->setLogin($_POST['usr_login']);
             $User->setPaswd($_POST['usr_paswd']);
 
-            $loginService = new LoginService();
-            if ( $loginService->CheckLogin() )
+            if ( $this->CheckLogin() )
             {
                 header("Location: " . $_application_folder . "/steden.php");
             }
