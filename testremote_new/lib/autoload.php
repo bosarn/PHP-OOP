@@ -5,6 +5,7 @@ $_root_folder = $_SERVER['DOCUMENT_ROOT'] . "$_application_folder";
 //load Models
 require_once $_root_folder . "/Model/City.php";
 require_once $_root_folder . "/Model/User.php";
+require_once $_root_folder . "/Model/Menu.php";
 
 //load Services
 require_once $_root_folder . "/Service/CityLoader.php";
@@ -12,6 +13,7 @@ require_once $_root_folder . "/Service/MessageService.php";
 require_once $_root_folder . "/Service/UserService.php";
 require_once $_root_folder . "/Service/TemplateLoader.php";
 require_once $_root_folder . "/Service/CityPusher.php";
+require_once $_root_folder . "/Service/MenuLoader.php";
 
 session_start();
 $_SESSION["head_printed"] = false;
