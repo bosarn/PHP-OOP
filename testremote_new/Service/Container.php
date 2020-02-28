@@ -6,7 +6,7 @@ class Container
     private $CityLoader;
     private $MessageService;
     private $TemplateLoader;
-
+    private $UserService;
 
 
     public function __construct(array $configuration)
@@ -46,5 +46,21 @@ class Container
         }
 
         return $this->MessageService;
+    }
+    public function getTemplateLoader()
+    {
+        if ($this->TemplateLoader === null) {
+            $this->TemplateLoader = new messageService();
+        }
+
+        return $this->TemplateLoader;
+    }
+    public function getUserService()
+    {
+        if ($this->UserService === null) {
+            $this->UserService = new messageService();
+        }
+
+        return $this->UserService;
     }
 }
