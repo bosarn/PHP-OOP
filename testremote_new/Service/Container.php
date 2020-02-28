@@ -7,6 +7,7 @@ class Container
     private $MessageService;
     private $TemplateLoader;
     private $UserService;
+    private $CityPusher;
 
 
     public function __construct(array $configuration)
@@ -62,5 +63,14 @@ class Container
         }
 
         return $this->UserService;
+    }
+
+    public function getCityPusher()
+    {
+        if ($this->CityPusher === null) {
+            $this->CityPusher = new cityPusher();
+        }
+
+        return $this->CityPusher;
     }
 }
