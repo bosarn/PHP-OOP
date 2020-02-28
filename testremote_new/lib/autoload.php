@@ -14,6 +14,7 @@ require_once $_root_folder . "/Service/UserService.php";
 require_once $_root_folder . "/Service/TemplateLoader.php";
 require_once $_root_folder . "/Service/CityPusher.php";
 require_once $_root_folder . "/Service/MenuLoader.php";
+require_once $_root_folder . "/Service/PrintHead.php";
 
 session_start();
 $_SESSION["head_printed"] = false;

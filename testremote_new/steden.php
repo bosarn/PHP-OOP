@@ -6,7 +6,7 @@ ini_set("display_startup_errors", 1);
 require_once "lib/autoload.php";
 
 $css = array( "style.css");
-BasicHead( $css );
+$header = new printHead($css);
 
 $MS->ShowMessages();
 ?>
