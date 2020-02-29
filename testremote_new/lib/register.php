@@ -2,14 +2,18 @@
 $register_form = true;
 require_once "autoload.php";
 
-$formname = $_POST["formname"];
-$tablename = $_POST["tablename"];
-$pkey = $_POST["pkey"];
+$User = $_POST;
+$RegisterPusher = new RegisterPusher($User);
+$RegisterPusher->PushRegister();
 
-if ( $formname == "registration_form" AND $_POST['register-but'] == "Register" )
-{
-    $UserService = new UserService();
-    $User = new User();
-    $UserService->ValidatePostedUserData($User);
-    $UserService->RegisterUser($User);
-}
+//$formname = $_POST["formname"];
+//$tablename = $_POST["tablename"];
+//$pkey = $_POST["pkey"];
+//
+//if ( $formname == "registration_form" AND $_POST['register-but'] == "Register" )
+//{
+//    $UserService = new UserService();
+//    $User = new User();
+//    $UserService->ValidatePostedUserData($User);
+//    $UserService->RegisterUser($User);
+//}
