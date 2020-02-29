@@ -19,6 +19,7 @@ require_once $_root_folder . "/Service/RegisterPusher.php";
 require_once $_root_folder . "/Service/LoginPusher.php";
 require_once $_root_folder . "/Service/LogoutService.php";
 require_once $_root_folder . "/Service/UploadService.php";
+require_once $_root_folder . "/Service/DownloadService.php";
 
 session_start();
 $_SESSION["head_printed"] = false;
