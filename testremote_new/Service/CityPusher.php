@@ -22,7 +22,7 @@ class cityPusher
 
             $sql ="update  images set img_title  = '$title', img_width = $width, img_height = $height, img_filename = '$filename' where img_id = $id";
 
-            if ( ExecuteSQL($sql) ) $new_url =  "/PHP_OOP/testremote_new/$afterinsert?insertOK=true" ;
+            if ( ExecuteSQL($sql) ) $new_url =  "/PHP-OOP/testremote_new/$afterinsert?insertOK=true" ;
             header("Location: $new_url");
 
         }

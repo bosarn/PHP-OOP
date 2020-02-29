@@ -8,6 +8,7 @@ class Container
     private $TemplateLoader;
     private $UserService;
     private $CityPusher;
+    private $MenuLoader;
 
 
     public function __construct(array $configuration)
@@ -72,5 +73,14 @@ class Container
         }
 
         return $this->CityPusher;
+    }
+
+    public function getMenuLoader()
+    {
+        if ($this->MenuLoader === null) {
+            $this->MenuLoader = new menuLoader();
+        }
+
+        return $this->MenuLoader;
     }
 }
