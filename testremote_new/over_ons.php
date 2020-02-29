@@ -12,7 +12,10 @@ $MS->ShowMessages();
     <h1>Over ons</h1>
 </div>
 
-<?php PrintNavBar(); ?>
+<?php
+$menu = new menuLoader();
+$menu->printNav();
+?>
 
 <div class="container">
     <div class="row">

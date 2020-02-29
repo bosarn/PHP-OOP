@@ -8,9 +8,6 @@ require_once "lib/autoload.php";
 $css = array( "style.css");
 $header = new printHead($css);
 
-$menu = new menuLoader();
-$menu->printNav();
-
 $MS->ShowMessages();
 ?>
 <body>
@@ -20,7 +17,10 @@ $MS->ShowMessages();
     <p>Tips voor citytrips voor vrolijke vakantiegangers!</p>
 </div>
 
-<?php PrintNavBar(); ?>
+<?php
+$menu = new menuLoader();
+$menu->printNav();
+?>
 
 <div class="container">
     <div class="row">

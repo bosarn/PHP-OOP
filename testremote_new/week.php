@@ -10,7 +10,10 @@ $MS->ShowMessages();
     <div class="jumbotron text-center">
         <h1>Weekoverzicht</h1>
     </div>
-    <?php PrintNavBar(); ?>
+    <?php
+    $menu = new menuLoader();
+    $menu->printNav();
+    ?>
 
     <div class="container">
         <div class="row">

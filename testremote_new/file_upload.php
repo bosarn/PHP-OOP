@@ -11,7 +11,10 @@ $header = new printHead($css);
     <h1>Formulier File Upload</h1>
 </div>
 
-<?php PrintNavBar(); ?>
+<?php
+$menu = new menuLoader();
+$menu->printNav();
+?>
 
 <div class="container">
     <div class="row">

@@ -7,7 +7,7 @@ if ( ! $_SESSION['usr']->getVzEid() > "" )
 }
 
 $css = array( "style.css");
-BasicHead( $css );
+$header = new printHead($css);
 $MS->ShowMessages();
 ?>
 <body>
@@ -16,7 +16,10 @@ $MS->ShowMessages();
     <h1>Uw profiel</h1>
 </div>
 
-<?php PrintNavBar(); ?>
+<?php
+$menu = new menuLoader();
+$menu->printNav();
+?>
 
 <div class="container">
 

@@ -9,7 +9,10 @@ $header = new printHead($css);
     <div class="jumbotron text-center">
         <h1>Mijn historiek</h1>
     </div>
-    <?php PrintNavBar(); ?>
+    <?php
+    $menu = new menuLoader();
+    $menu->printNav();
+    ?>
 
     <div class="container">
         <div class="row">
