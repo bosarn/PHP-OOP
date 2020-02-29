@@ -41,6 +41,8 @@ function PrintNavBar()
 //    if ( file_exists("../templates/$name.html") ) return file_get_contents("../templates/$name.html");
 //}
 
+// ARNO DEZE FUNCTIE STAAT IN DE MENULOADER MOET VANUIT DAAR AANGEPAST WORDEN EN OVERGEZET NAAR EEN NIEUWE CLASS
+
 /* Deze functie voegt data en template samen en print het resultaat */
 function ReplaceContent( $data, $template_html )
 {
@@ -80,6 +82,9 @@ function ReplaceCities( $cities, $template_html )
 
     return $returnval;
 }
+
+// ARNO DEZE FUNCTIE STAAT IN DE MENULOADER MOET VANUIT DAAR AANGEPAST WORDEN EN OVERGEZET NAAR EEN NIEUWE CLASS
+
 
 /* Deze functie voegt data en template samen en print het resultaat */
 function ReplaceContentOneRow( $row, $template_html )
