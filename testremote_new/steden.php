@@ -8,6 +8,9 @@ require_once "lib/autoload.php";
 $css = array( "style.css");
 $header = new printHead($css);
 
+$menu = new menuLoader();
+$menu->printNav();
+
 $MS->ShowMessages();
 ?>
 <body>

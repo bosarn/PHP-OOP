@@ -1,4 +1,7 @@
 <?php
+ini_set("error_reporting", E_ALL);
+ini_set("display_errors", 1);
+ini_set("display_startup_errors", 1);
 $login_form = true;
 require_once "lib/autoload.php";
 
@@ -11,8 +14,7 @@ if ( isset($_SESSION['usr']) )
 }
 
 $css = array( "style.css");
-BasicHead( $css );
-
+$header = new printHead($css);
 $MS->ShowMessages();
 ?>
 <body>
