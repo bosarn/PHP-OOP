@@ -3,7 +3,7 @@ $register_form = true;
 require_once "lib/autoload.php";
 
 $css = array( "style.css");
-BasicHead( $css );
+$header = new printHead($css);
 ?>
 <body>
 
