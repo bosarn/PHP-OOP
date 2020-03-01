@@ -2,8 +2,8 @@
 require_once "autoload.php";
 
 $User = $_POST;
-$logoutService = new LogoutService($User);
-$logoutService->LogoutUser();
+$UserService = new UserService($User);
+$UserService->LogoutUser();
 
 //session_start();
 //$UserService = new UserService();
