@@ -1,11 +1,9 @@
 <?php
 require_once "lib/autoload.php";
 $User = new User();
-$User->setVzEid($_SESSION['data'][0]['usr_vz_eid']);
-
 if ( ! $User->getVzEid() > "" )
 {
-    $MS->AddMessage("U moet uw E-id nog opladen!", "error");
+    $MS->AddMessage("U moet uw E-id nog opladen!!!", "error");
 }
 
 
