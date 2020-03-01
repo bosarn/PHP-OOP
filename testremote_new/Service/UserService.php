@@ -5,10 +5,10 @@ class UserService
 {
     private $User;
 
-    public function __construct($User)
-    {
-        $this->User = $User;
-    }
+//    public function __construct($User)
+//    {
+//        $this->User = $User;
+//    }
 
 //REGISTRATIE
     public function PushRegister()
@@ -148,7 +148,7 @@ class UserService
             $User->setPaswd($_POST['usr_paswd']);
 
 
-            if ( $UserService->CheckLogin($User) )
+            if ( $this->CheckLogin($User) )
             {
                 $MS->AddMessage( "Welkom, " . $User->getVoornaam() . "!" );
                 header("Location: " . $_application_folder . "/steden.php");
@@ -172,7 +172,7 @@ class UserService
         global $MS;
 
         session_start();
-        $UserService->LogLogoutUser();
+        $this->LogLogoutUser();
 
         session_destroy();
         unset($_SESSION);

@@ -36,6 +36,7 @@ class Container
 
         return $this->pdo;
     }
+
     public function getCityLoader()
     {
         if ($this->CityLoader === null) {
