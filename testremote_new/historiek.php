@@ -3,6 +3,7 @@ require_once "lib/autoload.php";
 
 $css = array( "style.css");
 $header = new printHead($css);
+$User = new User();
 ?>
     <body>
 
@@ -17,14 +18,14 @@ $header = new printHead($css);
     <div class="container">
         <div class="row">
 
-            <p>Gebruiker: <?= $_SESSION['usr']->getVoornaam() ?> <?=$_SESSION['usr']->getNaam() ?></p>
+            <p>Gebruiker: <?= $User->getVoornaam() ?> <?=$User->getNaam() ?></p>
             <table class="table">
                 <tr>
                     <th>Inloggen</th>
                     <th>Uitloggen</th>
                 </tr>
                     <?php
-                        $sql = "SELECT * FROM log_user WHERE log_usr_id=" . $_SESSION['usr']->getId() . " ORDER BY log_in" ;
+                        $sql = "SELECT * FROM log_user WHERE log_usr_id=" . $User->getId() . " ORDER BY log_in" ;
                         $data = GetData($sql);
 
                         foreach( $data as $row )

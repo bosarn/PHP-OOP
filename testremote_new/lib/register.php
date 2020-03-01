@@ -3,8 +3,8 @@ $register_form = true;
 require_once "autoload.php";
 
 $User = $_POST;
-$RegisterPusher = new RegisterPusher($User);
-$RegisterPusher->PushRegister();
+$UserService = new UserService($User);
+$UserService->PushRegister();
 
 //$formname = $_POST["formname"];
 //$tablename = $_POST["tablename"];

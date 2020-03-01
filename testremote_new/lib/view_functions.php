@@ -33,13 +33,6 @@ function PrintNavBar()
     print ReplaceContentOneRow($data, $template_navbar);
 }
 
-///* Deze functie laadt de opgegeven template */
-//function LoadTemplate( $name )
-//{
-//    if ( file_exists("$name.html") ) return file_get_contents("$name.html");
-//    if ( file_exists("templates/$name.html") ) return file_get_contents("templates/$name.html");
-//    if ( file_exists("../templates/$name.html") ) return file_get_contents("../templates/$name.html");
-//}
 
 // ARNO DEZE FUNCTIE STAAT IN DE MENULOADER MOET VANUIT DAAR AANGEPAST WORDEN EN OVERGEZET NAAR EEN NIEUWE CLASS
 

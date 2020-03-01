@@ -3,14 +3,23 @@
 
 class UserService
 {
+    private $User;
 
-    public function CheckIfUserExistsAlready(User $User)
+    public function __construct($User)
     {
-        //controle of gebruiker al bestaat
-        $sql = "SELECT * FROM users WHERE usr_login='" . $_POST['usr_login'] . "' ";
-        $data = GetData($sql);
+        $this->User = $User;
+    }
 
-        if ( count($data) > 0 ) die("Deze gebruiker bestaat reeds! Gelieve een andere login te gebruiken.");
+//REGISTRATIE
+    public function PushRegister()
+    {
+        $formname = $_POST["formname"];
+
+        if ($formname == "registration_form" AND $_POST['register-but'] == "Register") {
+            $User = new User();
+            $this->ValidatePostedUserData($User);
+            $this->RegisterUser($User);
+        }
     }
 
     public function ValidatePostedUserData(User $User)
@@ -22,6 +31,15 @@ class UserService
 
         //controle geldig e-mailadres
         if (!filter_var($_POST["usr_login"], FILTER_VALIDATE_EMAIL)) die("Ongeldig email formaat voor login");
+    }
+
+    public function CheckIfUserExistsAlready(User $User)
+    {
+        //controle of gebruiker al bestaat
+        $sql = "SELECT * FROM users WHERE usr_login='" . $_POST['usr_login'] . "' ";
+        $data = GetData($sql);
+
+        if ( count($data) > 0 ) die("Deze gebruiker bestaat reeds! Gelieve een andere login te gebruiken.");
     }
 
     public function RegisterUser(User $User)
@@ -49,7 +67,6 @@ class UserService
         {
             $MS->AddMessage( "Bedankt voor uw registratie!" );
 
-            //$User = new User();
             $User->setLogin($_POST['usr_login']);
             $User->setPaswd($_POST['usr_paswd']);
 
@@ -69,6 +86,8 @@ class UserService
         }
     }
 
+
+//LOGIN
     public function CheckLogin(User $User)
     {
         //gebruiker opzoeken ahv zijn login (e-mail)
@@ -113,6 +132,7 @@ class UserService
         $User->setAzEid($row['usr_az_eid']);
     }
 
+//LOG REGISTRATIE
     public function LogLoginUser(User $User)
     {
         $User = new User();
@@ -130,5 +150,60 @@ class UserService
         $now = $timenow->format('Y-m-d H:i:s') ;
         $sql = "UPDATE log_user SET  log_out='".$now."' where log_session_id='".$session."'";
         ExecuteSQL($sql);
+    }
+
+//LOGIN
+    public function PushLogin()
+    {
+        global $_application_folder;
+        global $MS;
+
+        $formname = $_POST["formname"];
+        $buttonvalue = $_POST['loginbutton'];
+
+        if ( $formname == "login_form" AND $buttonvalue == "Log in" )
+        {
+            $UserService = new UserService();
+            $User = new User();
+            $User->setLogin($_POST['usr_login']);
+            $User->setPaswd($_POST['usr_paswd']);
+
+
+            if ( $UserService->CheckLogin($User) )
+            {
+                $MS->AddMessage( "Welkom, " . $User->getVoornaam() . "!" );
+                header("Location: " . $_application_folder . "/steden.php");
+            }
+            else
+            {
+                $MS->AddMessage( "Sorry! Verkeerde login of wachtwoord!", "error" );
+                header("Location: " . $_application_folder . "/login.php");
+
+            }
+        }
+        else
+        {
+            $MS->AddMessage( "Foute formname of buttonvalue", "error" );
+
+        }
+    }
+
+//LOGOUT
+    public function LogoutUser()
+    {
+        global $_application_folder;
+        global $MS;
+
+        session_start();
+        $UserService = new UserService();
+        $UserService->LogLogoutUser();
+
+        session_destroy();
+        unset($_SESSION);
+
+        session_start();
+        session_regenerate_id();
+        $MS->AddMessage( "U bent afgemeld!" );
+        header("Location: " . $_application_folder . "/login.php");
     }
 }
