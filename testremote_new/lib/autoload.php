@@ -42,7 +42,6 @@ $ReplaceContent = $container-> getViewService();
 
 require_once $_root_folder . "/lib/passwd.php";
 require_once $_root_folder . "/lib/pdo.php";                 //database functies
-require_once $_root_folder . "/lib/view_functions.php";      //basic_head, load_template, replacecontent...
 
 //redirect naar NO ACCESS pagina als de gebruiker niet ingelogd is en niet naar
 //de loginpagina gaat
