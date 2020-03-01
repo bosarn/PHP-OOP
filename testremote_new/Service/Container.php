@@ -12,6 +12,7 @@ class Container
     private $WeekLoader;
     private $DownloadService;
     private $UploadService;
+    private $ViewService;
 
 
     public function __construct(array $configuration)
@@ -90,7 +91,7 @@ class Container
     public function getWeekLoader()
     {
         if ($this->WeekLoader === null) {
-        $this->WeekLoader = new menuLoader();
+        $this->WeekLoader = new menuLoader($this->getPDO());
         }
 
         return $this->WeekLoader;
@@ -111,6 +112,15 @@ class Container
     {
         if ($this->UploadService === null) {
             $this->UploadService = new UploadService();
+        }
+
+        return $this->UploadService;
+
+    }
+    public function getViewService()
+    {
+        if ($this->ViewService === null) {
+            $this->ViewService = new ViewService();
         }
 
         return $this->UploadService;

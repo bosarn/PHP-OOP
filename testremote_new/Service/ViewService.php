@@ -22,8 +22,6 @@ class ViewService
         return $returnval;
     }
 
-    /* Deze functie voegt data en template samen en print het resultaat */
-
 
 
 

@@ -27,10 +27,13 @@ require_once $_root_folder . "/Service/DownloadService.php";
 session_start();
 $_SESSION["head_printed"] = false;
 
-$MS = new MessageService();
-$UserService = new UserService();
-$TemplateLoader = new TemplateLoader();
-$ReplaceContent = new ViewService();
+
+$container = new Container();
+
+$MS = $container -> getMessageService();
+$UserService = $container-> getUserService();
+$TemplateLoader = $container-> getTemplateLoader();
+$ReplaceContent = $container-> getViewService();
 
 require_once $_root_folder . "/lib/passwd.php";
 require_once $_root_folder . "/lib/pdo.php";                 //database functies
