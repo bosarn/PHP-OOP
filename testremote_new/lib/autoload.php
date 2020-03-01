@@ -34,6 +34,8 @@ $MS = $container -> getMessageService();
 $UserService = $container-> getUserService();
 $TemplateLoader = $container-> getTemplateLoader();
 $ReplaceContent = $container-> getViewService();
+$UploadService = $container-> getUploadService();
+
 
 require_once $_root_folder . "/lib/passwd.php";
 require_once $_root_folder . "/lib/pdo.php";                 //database functies
