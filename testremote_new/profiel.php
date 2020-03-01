@@ -6,8 +6,6 @@ if ( ! $User->getVzEid() > "" )
     $MS->AddMessage("U moet uw E-id nog opladen!!!", "error");
 }
 
-
-
 $css = array( "style.css");
 $header = new printHead($css);
 $MS->ShowMessages();
