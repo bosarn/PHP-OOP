@@ -27,8 +27,13 @@ require_once $_root_folder . "/Service/DownloadService.php";
 session_start();
 $_SESSION["head_printed"] = false;
 
+$configuration =
+    array
+    ('db_dsn' => 'mysql:host=localhost;dbname=steden',
+    "db_user" => "root",
+    "db_password" => "mysql" );
 
-$container = new Container();
+$container = new Container($configuration);
 
 $MS = $container -> getMessageService();
 $UserService = $container-> getUserService();
