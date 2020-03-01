@@ -29,7 +29,7 @@ $menu->printNav();
         $cityLoader = new CityLoader();
         $cities = $cityLoader->Load();
         $template = $TemplateLoader->LoadTemplate("steden");
-        print ReplaceCities( $cities, $template);
+        $ReplaceContent->ReplaceCities( $cities, $template);
         ?>
 
     </div>
