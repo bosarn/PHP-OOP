@@ -52,7 +52,7 @@ class Container
      * @param $sql
      * @return bool
      */
-    public function getExecuteSql($sql){
+    public function getExecuteSQL($sql){
         $pdo = $this->getPDO();
 
         $stm = $pdo->prepare($sql);
