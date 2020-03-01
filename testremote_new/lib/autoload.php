@@ -26,7 +26,7 @@ require_once $_root_folder . "/Service/DownloadService.php";
 
 session_start();
 $_SESSION["head_printed"] = false;
-
+// configuration for container
 $configuration =
     array
     ('db_dsn' => 'mysql:host=localhost;dbname=steden',
@@ -39,6 +39,7 @@ $MS = $container -> getMessageService();
 $UserService = $container-> getUserService();
 $TemplateLoader = $container-> getTemplateLoader();
 $ReplaceContent = $container-> getViewService();
+$Database = $container->getDatabase();
 
 require_once $_root_folder . "/lib/passwd.php";
 require_once $_root_folder . "/lib/pdo.php";                 //database functies
