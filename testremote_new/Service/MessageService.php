@@ -2,13 +2,6 @@
 
 class MessageService
 {
-    private $viewservice;
-
-    public function __construct( ViewService $viewservice)
-    {
-
-        $this->viewservice = $viewservice;
-    }
 
     public function AddMessage( $msg, $type = "info" )
     {
@@ -31,11 +24,11 @@ class MessageService
                 {
                     $row = array( "message" => $message );
                     $TemplateLoader = new TemplateLoader();
-
+                    $viewservice = new ViewService();
                     $templ = $TemplateLoader->LoadTemplate("$type" . "s");   // errors.html en infos.html
-                     print $this->viewservice->ReplaceContentOneRow( $row, $templ );
+                     print $viewservice->ReplaceContentOneRow( $row, $templ );
                 }
-
+//
                 unset($_SESSION["$type"]);
             }
         }
