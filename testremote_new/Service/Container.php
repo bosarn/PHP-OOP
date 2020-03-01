@@ -38,7 +38,7 @@ class Container
         return $this->pdo;
     }
 
-    public function getData ($sql){
+    public function GetData ($sql){
         $pdo = $this->getPDO();
 
         $stm = $pdo->prepare($sql);
