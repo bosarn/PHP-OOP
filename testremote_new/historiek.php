@@ -18,7 +18,7 @@ $User = new User();
     <div class="container">
         <div class="row">
 
-            <p>Gebruiker: <?= $User->getVoornaam() ?> <?=$User->getNaam() ?></p>
+            <p>Gebruiker: <?= $User->getVoornaam() ?> <?= $User->getNaam() ?></p>
             <table class="table">
                 <tr>
                     <th>Inloggen</th>
