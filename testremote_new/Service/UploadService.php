@@ -9,6 +9,7 @@ class UploadService
 
     public function ProfielUpload()
     {
+        $User = new User();
         if (isset($_POST["submit"]) == "Opladen") {
             //$target_dir = de map waar de afbeeldingen uiteindelijk moet komen
             $target_dir = "../img/"; //de map waar de afbeelding uiteindelijk moet komen; relatief pad tov huidig script
@@ -49,19 +50,10 @@ class UploadService
                     $cancel = true;
                 }
 
-                //bestaat het bestand al?
-                /* Deze controle is overbodig volgens de opgave
-                if ( file_exists($target) )
-                {
-                    print "Bestand " . $originele_naam . "bestaat al!<br>";
-                    $cancel = true;
-                }
-                */
-
                 if (!$cancel) {
                     switch ($inputname) {
                         case "pasfoto":
-                            $target = "pasfoto_" . $_SESSION["usr"]["usr_id"] . "." . $extensie;
+                            $target = "pasfoto_" . $User->getid() . "." . $extensie;
                             $images[] = "usr_pasfoto='" . $target . "'";
                             break;
                         case "eidvoor":
@@ -86,7 +78,7 @@ class UploadService
             }
 
             //de afbeeldingen opslaan in het gebruikersprofiel
-            $sql = "update users SET " . implode(",", $images) . " where usr_id=" . $_SESSION["usr"]["usr_id"];
+            $sql = "update users SET " . implode(",", $images) . " where usr_id=" . $User->getId();
             ExecuteSQL($sql);
 
             //eventueel een redirect naar de profielpagina
