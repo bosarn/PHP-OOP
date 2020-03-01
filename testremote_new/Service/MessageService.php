@@ -2,11 +2,22 @@
 
 class MessageService
 {
+    private $viewservice;
+
+    public function __construct( ViewService $viewservice)
+    {
+
+        $this->viewservice = $viewservice;
+    }
+
     public function AddMessage( $msg, $type = "info" )
     {
         $_SESSION["$type"][] = $msg ;
     }
 
+    /**
+     * @param ViewService
+     */
     public function ShowMessages()
     {
         if ( ! $_SESSION["head_printed"] ) BasicHead();
@@ -20,8 +31,9 @@ class MessageService
                 {
                     $row = array( "message" => $message );
                     $TemplateLoader = new TemplateLoader();
+
                     $templ = $TemplateLoader->LoadTemplate("$type" . "s");   // errors.html en infos.html
-                    print ReplaceContentOneRow( $row, $templ );
+                     print $this->viewservice->ReplaceContentOneRow( $row, $templ );
                 }
 
                 unset($_SESSION["$type"]);
