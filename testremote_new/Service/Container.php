@@ -14,7 +14,6 @@ class Container
     private $UploadService;
     private $ViewService;
 
-
     public function __construct(array $configuration)
     {
         $this->configuration = $configuration;
