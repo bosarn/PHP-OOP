@@ -15,7 +15,6 @@ require_once $_root_folder . "/Service/TemplateLoader.php";
 require_once $_root_folder . "/Service/CityPusher.php";
 require_once $_root_folder . "/Service/MenuLoader.php";
 require_once $_root_folder . "/Service/PrintHead.php";
-require_once $_root_folder . "/Service/RegisterPusher.php";
 require_once $_root_folder . "/Service/LoginPusher.php";
 require_once $_root_folder . "/Service/LogoutService.php";
 require_once $_root_folder . "/Service/UploadService.php";
