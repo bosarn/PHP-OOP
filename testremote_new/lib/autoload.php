@@ -30,7 +30,7 @@ session_start();
 $_SESSION["head_printed"] = false;
 
 //Container
-$container = new Container( $configuration );
+$container = new Container($configuration);
 $MS = $container -> getMessageService();
 $UserService = $container-> getUserService();
 $TemplateLoader = $container-> getTemplateLoader();
