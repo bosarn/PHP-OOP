@@ -9,8 +9,6 @@ require_once $_root_folder . "/Model/User.php";
 require_once $_root_folder . "/Model/Menu.php";
 require_once $_root_folder . "/Model/Taken.php";
 
-
-
 //load Services
 require_once $_root_folder . "/Service/CityLoader.php";
 require_once $_root_folder . "/Service/Container.php";
@@ -24,21 +22,20 @@ require_once $_root_folder . "/Service/PrintHead.php";
 require_once $_root_folder . "/Service/UploadService.php";
 require_once $_root_folder . "/Service/DownloadService.php";
 
+//load lib bestanden
+require_once $_root_folder . "/lib/passwd.php";
+require_once $_root_folder . "/lib/pdo.php";
+
 session_start();
 $_SESSION["head_printed"] = false;
 
-
 //Container
-$container = new Container($configuration);
+$container = new Container( $configuration );
 $MS = $container -> getMessageService();
 $UserService = $container-> getUserService();
 $TemplateLoader = $container-> getTemplateLoader();
 $ReplaceContent = $container-> getViewService();
 $UploadService = $container-> getUploadService();
-
-//load Services
-require_once $_root_folder . "/lib/passwd.php";
-require_once $_root_folder . "/lib/pdo.php";
 
 //redirect naar NO ACCESS pagina als de gebruiker niet ingelogd is en niet naar de loginpagina gaat
 if (!isset($_SESSION['usr']) AND !$login_form AND !$register_form AND !$no_access) {
