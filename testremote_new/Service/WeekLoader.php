@@ -64,12 +64,13 @@ class WeekLoader
         }
 //Alle data als object in array duwen en returnen.
         foreach ($WeekArray as $taken) {
-            $takenarray[] =
+
 
             $taak = new Taken();
             $taak->setId($taken['taa_id']);
             $taak->setOmschrijving($taken['taa_omschr']);
             $taak->setDatum($taken['taa_datum']);
+            $takenarray[] = $taak;
         }
 
         return $takenarray;
