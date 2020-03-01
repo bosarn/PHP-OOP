@@ -5,10 +5,10 @@ class UserService
 {
     private $User;
 
-    public function __construct($User)
-    {
-        $this->User = $User;
-    }
+//    public function __construct($User)
+//    {
+//        $this->User = $User;
+//    }
 
 //REGISTRATIE
     public function PushRegister()
@@ -87,7 +87,7 @@ class UserService
     }
 
 
-//LOGIN
+//CHECK LOGIN
     public function CheckLogin(User $User)
     {
         //gebruiker opzoeken ahv zijn login (e-mail)
@@ -132,26 +132,6 @@ class UserService
         $User->setAzEid($row['usr_az_eid']);
     }
 
-//LOG REGISTRATIE
-    public function LogLoginUser(User $User)
-    {
-        $User = new User();
-        $session = session_id();
-        $timenow = new DateTime( 'NOW', new DateTimeZone('Europe/Brussels') );
-        $now = $timenow->format('Y-m-d H:i:s') ;
-        $sql = "INSERT INTO log_user SET log_usr_id=".$User->getId().", log_session_id='".$session."', log_in= '".$now."'";
-        ExecuteSQL($sql);
-    }
-
-    public function LogLogoutUser()
-    {
-        $session = session_id();
-        $timenow = new DateTime( 'NOW', new DateTimeZone('Europe/Brussels') );
-        $now = $timenow->format('Y-m-d H:i:s') ;
-        $sql = "UPDATE log_user SET  log_out='".$now."' where log_session_id='".$session."'";
-        ExecuteSQL($sql);
-    }
-
 //LOGIN
     public function PushLogin()
     {
@@ -178,13 +158,11 @@ class UserService
             {
                 $MS->AddMessage( "Sorry! Verkeerde login of wachtwoord!", "error" );
                 header("Location: " . $_application_folder . "/login.php");
-
             }
         }
         else
         {
-            $MS->AddMessage( "Foute formname of buttonvalue", "error" );
-
+            $MS->AddMessage( "Sorry! Er ging iets mis.", "error" );
         }
     }
 
@@ -205,5 +183,25 @@ class UserService
         session_regenerate_id();
         $MS->AddMessage( "U bent afgemeld!" );
         header("Location: " . $_application_folder . "/login.php");
+    }
+
+//LOG REGISTRATIE
+    public function LogLoginUser(User $User)
+    {
+        $User = new User();
+        $session = session_id();
+        $timenow = new DateTime( 'NOW', new DateTimeZone('Europe/Brussels') );
+        $now = $timenow->format('Y-m-d H:i:s') ;
+        $sql = "INSERT INTO log_user SET log_usr_id=".$User->getId().", log_session_id='".$session."', log_in= '".$now."'";
+        ExecuteSQL($sql);
+    }
+
+    public function LogLogoutUser()
+    {
+        $session = session_id();
+        $timenow = new DateTime( 'NOW', new DateTimeZone('Europe/Brussels') );
+        $now = $timenow->format('Y-m-d H:i:s') ;
+        $sql = "UPDATE log_user SET  log_out='".$now."' where log_session_id='".$session."'";
+        ExecuteSQL($sql);
     }
 }
