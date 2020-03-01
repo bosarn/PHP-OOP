@@ -5,10 +5,10 @@ class UserService
 {
     private $User;
 
-//    public function __construct($User)
-//    {
-//        $this->User = $User;
-//    }
+    public function __construct($User)
+    {
+        $this->User = $User;
+    }
 
 //REGISTRATIE
     public function PushRegister()
@@ -143,7 +143,6 @@ class UserService
 
         if ( $formname == "login_form" AND $buttonvalue == "Log in" )
         {
-            $UserService = new UserService();
             $User = new User();
             $User->setLogin($_POST['usr_login']);
             $User->setPaswd($_POST['usr_paswd']);
@@ -173,7 +172,6 @@ class UserService
         global $MS;
 
         session_start();
-        $UserService = new UserService();
         $UserService->LogLogoutUser();
 
         session_destroy();
