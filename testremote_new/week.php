@@ -18,21 +18,7 @@ $MS->ShowMessages();
     <div class="container">
         <div class="row">
 
-            <?php
-            $year = (isset($_GET['year'])) ? $_GET['year'] : date("Y");
-            $week = (isset($_GET['week'])) ? $_GET['week'] : date("W");
 
-            if ($week > 52)
-            {
-                $year++;
-                $week = 1;
-            }
-            elseif ($week < 1)
-            {
-                $year--;
-                $week = 52;
-            }
-?>
 
     <table class="table">
         <tr>

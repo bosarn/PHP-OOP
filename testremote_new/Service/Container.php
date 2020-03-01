@@ -9,7 +9,7 @@ class Container
     private $UserService;
     private $CityPusher;
     private $MenuLoader;
-
+    private $WeekLoader;
 
     public function __construct(array $configuration)
     {
@@ -83,4 +83,15 @@ class Container
 
         return $this->MenuLoader;
     }
+
+public function getWeekLoader()
+{
+    if ($this->WeekLoader === null) {
+    $this->WeekLoader = new menuLoader();
+    }
+
+    return $this->WeekLoader;
+
+}
+
 }
