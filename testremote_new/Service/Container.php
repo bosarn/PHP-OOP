@@ -38,6 +38,29 @@ class Container
         return $this->pdo;
     }
 
+    public function getData ($sql){
+        $pdo = $this->getPDO();
+
+        $stm = $pdo->prepare($sql);
+        $stm->execute();
+
+        $rows = $stm->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
+    }
+
+    /**
+     * @param $sql
+     * @return bool
+     */
+    public function getExecuteSql($sql){
+        $pdo = $this->getPDO();
+
+        $stm = $pdo->prepare($sql);
+
+        if ( $stm->execute() ) return true;
+        else return false;
+    }
+
     public function getCityLoader()
     {
         if ($this->CityLoader === null) {
