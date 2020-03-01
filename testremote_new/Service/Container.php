@@ -56,7 +56,7 @@ class Container
     public function getTemplateLoader()
     {
         if ($this->TemplateLoader === null) {
-            $this->TemplateLoader = new messageService();
+            $this->TemplateLoader = new TemplateLoader();
         }
 
         return $this->TemplateLoader;
@@ -64,7 +64,7 @@ class Container
     public function getUserService()
     {
         if ($this->UserService === null) {
-            $this->UserService = new messageService();
+            $this->UserService = new UserService();
         }
 
         return $this->UserService;
@@ -91,7 +91,7 @@ class Container
     public function getWeekLoader()
     {
         if ($this->WeekLoader === null) {
-        $this->WeekLoader = new menuLoader($this->getPDO());
+        $this->WeekLoader = new WeekLoader($this->getPDO());
         }
 
         return $this->WeekLoader;
@@ -123,7 +123,7 @@ class Container
             $this->ViewService = new ViewService();
         }
 
-        return $this->UploadService;
+        return $this->ViewService;
 
     }
 
