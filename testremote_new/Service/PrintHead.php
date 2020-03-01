@@ -18,7 +18,8 @@ class printHead
         $data = array("stylesheets" => $str_stylesheets );
         $TemplateLoader = new TemplateLoader();
         $template = $TemplateLoader->LoadTemplate("basic_head");
-        print ReplaceContentOneRow($data, $template);
+        $ViewService= new ViewService();
+        print $ViewService->ReplaceContentOneRow($data, $template);
 
         $_SESSION["head_printed"] = true;
     }
