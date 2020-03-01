@@ -28,21 +28,19 @@ session_start();
 $_SESSION["head_printed"] = false;
 
 
-$container = new Container();
-
+//Container
+$container = new Container($configuration);
 $MS = $container -> getMessageService();
 $UserService = $container-> getUserService();
 $TemplateLoader = $container-> getTemplateLoader();
 $ReplaceContent = $container-> getViewService();
 $UploadService = $container-> getUploadService();
 
-
+//load Services
 require_once $_root_folder . "/lib/passwd.php";
-require_once $_root_folder . "/lib/pdo.php";                 //database functies
-require_once $_root_folder . "/lib/view_functions.php";      //basic_head, load_template, replacecontent...
+require_once $_root_folder . "/lib/pdo.php";
 
-//redirect naar NO ACCESS pagina als de gebruiker niet ingelogd is en niet naar
-//de loginpagina gaat
+//redirect naar NO ACCESS pagina als de gebruiker niet ingelogd is en niet naar de loginpagina gaat
 if (!isset($_SESSION['usr']) AND !$login_form AND !$register_form AND !$no_access) {
     header("Location: " . $_application_folder . "/no_access.php");
 }
