@@ -13,6 +13,7 @@ class Container
     private $DownloadService;
     private $UploadService;
     private $ViewService;
+    private $Database;
 
     public function __construct(array $configuration)
     {
@@ -124,6 +125,15 @@ class Container
         }
 
         return $this->ViewService;
+
+    }
+    public function getDatabase()
+    {
+        if ($this->Database === null) {
+            $this->Database = new Database($this->getPDO());
+        }
+
+        return $this->Database;
 
     }
 
