@@ -81,51 +81,18 @@ class menuLoader
 
         //template voor 1 item samenvoegen met data voor items
         $TemplateLoader = new TemplateLoader();
+        $ViewService = new ViewService();
         $template_navbar_item = $TemplateLoader->LoadTemplate("navbar_item");
-        $navbar_items = $this->ReplaceContent($data, $template_navbar_item);
+        $navbar_items = $ViewService->ReplaceContent($data, $template_navbar_item);
 
         //navbar template samenvoegen met resultaat ($navbar_items)
         $data = array( "navbar_items" => $navbar_items ) ;
 
         $template_navbar = $TemplateLoader->LoadTemplate("navbar");
-        print $this->ReplaceContentOneRow($data, $template_navbar);
+        print $ViewService->ReplaceContentOneRow($data, $template_navbar);
     }
 
 
-    /* Deze functie voegt data en template samen en print het resultaat */
-    public function ReplaceContent($data, $template_html )
-    {
-        $returnval = "";
-
-        foreach ( $data as $row )
-        {
-            //replace fields with values in template
-            $content = $template_html;
-            foreach($row as $field => $value)
-            {
-                $content = str_replace("@@$field@@", $value, $content);
-            }
-
-            $returnval .= $content;
-        }
-
-        return $returnval;
-    }
-
-
-
-    /* Deze functie voegt data en template samen en print het resultaat */
-    public function ReplaceContentOneRow( $row, $template_html )
-    {
-        //replace fields with values in template
-        $content = $template_html;
-        foreach($row as $field => $value)
-        {
-            $content = str_replace("@@$field@@", $value, $content);
-        }
-
-        return $content;
-    }
 
 
 }
