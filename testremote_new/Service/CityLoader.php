@@ -9,7 +9,8 @@ class CityLoader
         $sql = "select * from images";
         if ( $id > 0 ) $sql .= " where img_id=$id";
 
-        $data = GetData($sql);
+        global $container;
+        $data = $container->GetData($sql);
         foreach ( $data as $row )
         {
             $city = new City();

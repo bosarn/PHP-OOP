@@ -26,7 +26,7 @@ $User = new User();
                 </tr>
                     <?php
                         $sql = "SELECT * FROM log_user WHERE log_usr_id=" . $User->getId() . " ORDER BY log_in" ;
-                        $data = GetData($sql);
+                        $data = $container->GetData($sql);
 
                         foreach( $data as $row )
                         {

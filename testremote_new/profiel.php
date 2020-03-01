@@ -32,7 +32,7 @@ $menu->printNav();
 
             //gebruikersgegevens ophalen uit databank
             $sql = "select * from users where usr_id=" . $User->getId();
-            $data = GetData($sql);
+            $data = $container->GetData($sql);
 
             print "<table class='table table-striped table-bordered'>";
             foreach( $data as $row )

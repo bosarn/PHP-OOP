@@ -93,10 +93,11 @@ class UserService
 //CHECK LOGIN
     public function CheckLogin(User $User)
     {
+        global $container;
         //gebruiker opzoeken ahv zijn login (e-mail)
         //$User = new User();
         $sql = "SELECT * FROM users WHERE usr_login='" . $User->getLogin() . "' ";
-        $data = GetData($sql);
+        $data = $container->GetData($sql);
         if ( count($data) == 1 )
         {
             $row = $data[0];

@@ -34,6 +34,7 @@ $configuration =
     "db_user" => "root",
     "db_password" => "mysql" );
 
+global $container;
 $container = new Container($configuration);
 
 $MS = $container -> getMessageService();

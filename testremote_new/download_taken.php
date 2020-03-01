@@ -10,7 +10,7 @@ $DownloadService->PrintCSVHeader("taken" . date("Y_m_d_His"));
 echo implode(";", array("ID", "Datum", "Taak")) . "\r\n" ;
 
 $sql = "SELECT * FROM taak" ;
-$data = GetData($sql);
+$data = $container->GetData($sql);
 
 //rijen met data
 foreach( $data as $row )

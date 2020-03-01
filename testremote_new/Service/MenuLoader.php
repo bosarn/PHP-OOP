@@ -58,8 +58,9 @@ class menuLoader
 
     public function PrintNav()
     {
+        global $container;
         //navbar items ophalen
-        $data = GetData("select * from menu order by men_order");
+        $data = $container->GetData("select * from menu order by men_order");
 
         $laatste_deel_url = basename($_SERVER['SCRIPT_NAME']);
 
