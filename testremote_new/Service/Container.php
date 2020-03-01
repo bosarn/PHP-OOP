@@ -10,6 +10,9 @@ class Container
     private $CityPusher;
     private $MenuLoader;
     private $WeekLoader;
+    private $DownloadService;
+    private $UploadService;
+
 
     public function __construct(array $configuration)
     {
@@ -84,14 +87,34 @@ class Container
         return $this->MenuLoader;
     }
 
-public function getWeekLoader()
-{
-    if ($this->WeekLoader === null) {
-    $this->WeekLoader = new menuLoader();
+    public function getWeekLoader()
+    {
+        if ($this->WeekLoader === null) {
+        $this->WeekLoader = new menuLoader();
+        }
+
+        return $this->WeekLoader;
+
     }
 
-    return $this->WeekLoader;
+    public function getDownloadService()
+    {
+        if ($this->DownloadService === null) {
+            $this->DownloadService = new DownloadService();
+        }
 
-}
+        return $this->DownloadService;
+
+    }
+
+    public function getUploadService()
+    {
+        if ($this->UploadService === null) {
+            $this->UploadService = new UploadService();
+        }
+
+        return $this->UploadService;
+
+    }
 
 }
