@@ -115,7 +115,7 @@ class menuLoader
 
 
     /* Deze functie voegt data en template samen en print het resultaat */
-    function ReplaceContentOneRow( $row, $template_html )
+    public function ReplaceContentOneRow( $row, $template_html )
     {
         //replace fields with values in template
         $content = $template_html;
@@ -126,4 +126,6 @@ class menuLoader
 
         return $content;
     }
+
+
 }

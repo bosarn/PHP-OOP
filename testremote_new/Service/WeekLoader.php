@@ -62,7 +62,7 @@ class WeekLoader
         if (!$WeekArray) {
             return null;
         }
-
+//Alle data als object in array duwen en returnen.
         foreach ($WeekArray as $taken) {
             $takenarray[] =
 
@@ -77,7 +77,7 @@ class WeekLoader
 
 
 
-// Returns rows for each day in table with Taken object in it.
+// Returns rows for each day in table with "Taken" object in it.
 
     /**
      * @param taken

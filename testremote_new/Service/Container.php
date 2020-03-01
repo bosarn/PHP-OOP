@@ -87,7 +87,7 @@ class Container
 public function getWeekLoader()
 {
     if ($this->WeekLoader === null) {
-    $this->WeekLoader = new menuLoader();
+    $this->WeekLoader = new Weekloader($this->getPDO());
     }
 
     return $this->WeekLoader;

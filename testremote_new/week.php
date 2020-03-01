@@ -4,6 +4,9 @@ require_once "lib/autoload.php";
 $css = array( "style.css");
 $header = new printHead($css);
 $MS->ShowMessages();
+
+$weekloader = $container-> getWeekLoader();
+
 ?>
     <body>
 
@@ -27,28 +30,14 @@ $MS->ShowMessages();
             <th>Taken</th>
         </tr>
             <?php
-            if( isset($_GET['week']) AND $week < 10 ) { $week = '0' . $week; }
+
+            $week = $weekloader->getWeek();
+            $year = $weekloader->getYear();
 
             for( $day=1; $day <= 7; $day++ )
             {
-                $d = strtotime($year . "W" . $week . $day);
-                $sqldate = date("Y-m-d", $d);
-
-                $sql = "SELECT taa_omschr FROM taak WHERE taa_datum = '".$sqldate."'" ;
-                $data = GetData($sql);
-
-                $taken = array();
-                foreach( $data as $row )
-                {
-                    $taken[] = $row['taa_omschr'];
-                }
-                $takenlijst = "<ul><li>" . implode( "</li><li>" , $taken ) . "</li></ul>";
-
-                echo "<tr>";
-                echo "<td>" . date("l", $d). "</td>";
-                echo "<td>" . date("d/m/Y", $d). "</td>";
-                echo "<td>" . $takenlijst . "</td>";
-                echo "</tr>" ;
+                $tablerow = $weekloader->getRow($day);
+                echo $tablerow;
             }
 
             echo "</table>";
