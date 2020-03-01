@@ -36,8 +36,8 @@ $weekloader = $container-> getWeekLoader();
 
             for( $day=1; $day <= 7; $day++ )
             {
-                $tablerow = $weekloader->getRow($day);
-                echo $tablerow;
+                $Row = $weekloader->getRow($day);
+                echo $Row;
             }
 
             echo "</table>";

@@ -82,6 +82,7 @@ class WeekLoader
 
     /**
      * @param taken
+     *
      */
     public function getRow($day)
     {
@@ -100,12 +101,12 @@ class WeekLoader
         }
 
         $takenlijst = "<ul><li>" . implode("</li><li>", $taken) . "</li></ul>";
+        $returnvar = "<tr><td>" . date("l", $date) . "</td>
+         <td>" . date("d/m/Y", $date) . "</td>
+         <td>" . $takenlijst . "</td>
+         </tr>";
+        return $returnvar;
 
-        echo "<tr>";
-        echo "<td>" . date("l", $date) . "</td>";
-        echo "<td>" . date("d/m/Y", $date) . "</td>";
-        echo "<td>" . $takenlijst . "</td>";
-        echo "</tr>";
     }
 
 
