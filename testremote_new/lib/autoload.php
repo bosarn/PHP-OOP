@@ -26,6 +26,7 @@ require_once $_root_folder . "/Service/DownloadService.php";
 
 session_start();
 $_SESSION["head_printed"] = false;
+
 // configuration for container
 $configuration =
     array

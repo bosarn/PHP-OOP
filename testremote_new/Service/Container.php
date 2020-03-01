@@ -27,9 +27,9 @@ class Container
     {
         if ($this->pdo === null) {
             $this->pdo = new PDO(
-                $this->configuration['dbdsn'],
-                $this->configuration['dbuser'],
-                $this->configuration['dbpassword']
+                $this->configuration['db_dsn'],
+                $this->configuration['db_user'],
+                $this->configuration['db_password']
             );
 
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

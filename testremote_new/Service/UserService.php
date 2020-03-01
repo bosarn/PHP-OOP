@@ -35,9 +35,11 @@ class UserService
 
     public function CheckIfUserExistsAlready(User $User)
     {
+        global $container;
+
         //controle of gebruiker al bestaat
         $sql = "SELECT * FROM users WHERE usr_login='" . $_POST['usr_login'] . "' ";
-        $data = GetData($sql);
+        $data = $container->GetData($sql);
 
         if ( count($data) > 0 ) die("Deze gebruiker bestaat reeds! Gelieve een andere login te gebruiken.");
     }
@@ -47,6 +49,7 @@ class UserService
         global $tablename;
         global $_application_folder;
         global $MS;
+        global $container;
 
         //wachtwoord coderen
         $password_encrypted = password_hash ( $_POST["usr_paswd"] , PASSWORD_DEFAULT );
@@ -63,7 +66,7 @@ class UserService
             " usr_login='" . $_POST['usr_login'] . "' , " .
             " usr_paswd='" . $password_encrypted . "'  " ;
 
-        if ( ExecuteSQL($sql) )
+        if ( $container->getExecuteSQL($sql) )
         {
             $MS->AddMessage( "Bedankt voor uw registratie!" );
 
@@ -186,20 +189,22 @@ class UserService
 //LOG REGISTRATIE
     public function LogLoginUser(User $User)
     {
+        global $container;
         $User = new User();
         $session = session_id();
         $timenow = new DateTime( 'NOW', new DateTimeZone('Europe/Brussels') );
         $now = $timenow->format('Y-m-d H:i:s') ;
         $sql = "INSERT INTO log_user SET log_usr_id=".$User->getId().", log_session_id='".$session."', log_in= '".$now."'";
-        ExecuteSQL($sql);
+        $container->getExecuteSQL($sql);
     }
 
     public function LogLogoutUser()
     {
+        global $container;
         $session = session_id();
         $timenow = new DateTime( 'NOW', new DateTimeZone('Europe/Brussels') );
         $now = $timenow->format('Y-m-d H:i:s') ;
         $sql = "UPDATE log_user SET  log_out='".$now."' where log_session_id='".$session."'";
-        ExecuteSQL($sql);
+        $container->getExecuteSQL($sql);
     }
 }

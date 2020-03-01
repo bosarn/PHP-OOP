@@ -77,8 +77,9 @@ class UploadService
             }
 
             //de afbeeldingen opslaan in het gebruikersprofiel
+            global $container;
             $sql = "update users SET " . implode(",", $images) . " where usr_id=" . $User->getId();
-            ExecuteSQL($sql);
+            $container->getExecuteSQL($sql);
 
             //eventueel een redirect naar de profielpagina
 
