@@ -23,6 +23,7 @@ require_once $_root_folder . "/Service/MenuLoader.php";
 require_once $_root_folder . "/Service/PrintHead.php";
 require_once $_root_folder . "/Service/UploadService.php";
 require_once $_root_folder . "/Service/DownloadService.php";
+require_once $_root_folder . "/Service/WeekLoader.php";
 
 session_start();
 $_SESSION["head_printed"] = false;
@@ -41,7 +42,7 @@ $MS = $container -> getMessageService();
 $UserService = $container-> getUserService();
 $TemplateLoader = $container-> getTemplateLoader();
 $ReplaceContent = $container-> getViewService();
-
+$WeekLoader = $container->getWeekLoader();
 $UploadService = $container-> getUploadService();
 
 require_once $_root_folder . "/lib/passwd.php";
