@@ -150,14 +150,5 @@ class Container
         return $this->ViewService;
 
     }
-    public function getDatabase()
-    {
-        if ($this->Database === null) {
-            $this->Database = new Database($this->getPDO());
-        }
-
-        return $this->Database;
-
-    }
 
 }

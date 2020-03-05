@@ -31,7 +31,8 @@ $menu->printNav();
             <?php
 
             //gebruikersgegevens ophalen uit databank
-            $sql = "select * from users where usr_id=" . $User->getId();
+            $sql = "select * from users where usr_id=" . $_SESSION["usr"]->getId();
+            var_dump($sql);
             $data = $container->GetData($sql);
 
             print "<table class='table table-striped table-bordered'>";
